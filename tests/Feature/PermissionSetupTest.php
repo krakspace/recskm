@@ -5,7 +5,11 @@ namespace Tests\Feature;
 use App\Models\Permission;
 use App\Models\Role;
 use App\Models\User;
+use Illuminate\Contracts\Http\Kernel;
 use Illuminate\Foundation\Testing\RefreshDatabase;
+use Spatie\Permission\Middleware\PermissionMiddleware;
+use Spatie\Permission\Middleware\RoleMiddleware;
+use Spatie\Permission\Middleware\RoleOrPermissionMiddleware;
 use Tests\TestCase;
 
 class PermissionSetupTest extends TestCase
@@ -34,5 +38,14 @@ class PermissionSetupTest extends TestCase
 
         $this->assertTrue($user->fresh()->hasRole('admin'));
         $this->assertTrue($user->fresh()->can('manage users'));
+    }
+
+    public function test_permission_middleware_aliases_are_registered(): void
+    {
+        $aliases = app(Kernel::class)->getMiddlewareAliases();
+
+        $this->assertSame(RoleMiddleware::class, $aliases['role'] ?? null);
+        $this->assertSame(PermissionMiddleware::class, $aliases['permission'] ?? null);
+        $this->assertSame(RoleOrPermissionMiddleware::class, $aliases['role_or_permission'] ?? null);
     }
 }
