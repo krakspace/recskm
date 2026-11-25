@@ -1,8 +1,15 @@
 @extends('layouts.app')
 
-@section('title', 'form_SOP')
+@section('title', 'Buat SOP')
+
+@section('breadcrumbs')
+    @include('partials.breadcrumbs', ['breadcrumbs' => [
+        ['label' => 'Beranda', 'route' => 'dashboard'],
+        ['label' => 'Pengelolaan SOP'],
+        ['label' => 'Buat SOP'],
+    ]])
+@endsection
 
 @section('content')
-    <h1>Form SOP</h1>
-    <p>Selamat datang di haform_SOPhboard.</p>
+    <h1>Buat SOP</h1>
 @endsection

@@ -1,13 +1,45 @@
-<nav class="nav nav-pills flex-column bg-light border-bottom px-3 py-2" aria-label="Menu utama">
-    <a @class(['nav-link', 'active' => request()->routeIs('dashboard')])
+@php
+    $currentRoute = request()->route()?->getName();
+@endphp
+
+<div class="sidebar-toolbar">
+    <h2 id="sidebar-heading">Menu utama</h2>
+    <button class="sidebar-toggle" id="sidebar-toggle" type="button" aria-controls="sidebar-nav" aria-expanded="true" aria-label="Tutup sidebar" title="Tutup sidebar">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true">
+            <rect x="2.5" y="4" width="19" height="16" rx="2"/>
+            <path d="M9 4v16"/>
+            <path class="toggle-chevron" d="m16 9-3 3 3 3"/>
+        </svg>
+    </button>
+</div>
+<nav class="sidebar-nav" id="sidebar-nav" aria-labelledby="sidebar-heading">
+    <a class="sidebar-link sidebar-home"
        href="{{ route('dashboard') }}"
-       @if (request()->routeIs('dashboard')) aria-current="page" @endif>
-        Dashboard
+       @if ($currentRoute === 'dashboard') aria-current="page" @endif>
+        Beranda
     </a>
 
-    <a @class(['nav-link', 'active' => request()->routeIs('form_SOP')])
-       href="{{ route('form_SOP') }}"
-       @if (request()->routeIs('form_SOP')) aria-current="page" @endif>
-        Form SOP
-    </a>
+    @foreach (config('sidebar') as $sectionLabel => $items)
+        @php
+            $sectionIsActive = $currentRoute !== null && in_array($currentRoute, $items, true);
+        @endphp
+
+        <details @if ($sectionIsActive) open @endif>
+            <summary @class(['sidebar-link', 'sidebar-section', 'sidebar-section-current' => $sectionIsActive])>
+                {{ $sectionLabel }}
+            </summary>
+
+            <ul class="sidebar-submenu">
+                @foreach ($items as $label => $routeName)
+                    <li>
+                        <a class="sidebar-sublink"
+                           href="{{ route($routeName) }}"
+                           @if ($currentRoute === $routeName) aria-current="page" @endif>
+                            {{ $label }}
+                        </a>
+                    </li>
+                @endforeach
+            </ul>
+        </details>
+    @endforeach
 </nav>

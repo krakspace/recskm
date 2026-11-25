@@ -10,44 +10,25 @@
     integrity="sha384-yEPZ7jP9S0QKiUQ0m3jjsO4ProIW7wvR9gXkI7JOGa2XVsw53Yke2bsdkBbjmmiX"
     crossorigin="anonymous"
     >
-    <style>
-        body {
-            margin: 0;
-            min-height: 100vh;
-            display: grid;
-            grid-template-rows: auto 1fr auto;
-            font-family: system-ui, sans-serif;
-        }
-
-        .site-header, .site-footer {
-            padding: 1rem;
-            background: #172554;
-            color: white;
-        }
-
-
-        .sidebar, main {
-            padding: 1rem;
-        }
-
-        .sidebar {
-            background: #eff6ff;
-        }
-
-
-    </style>
+    <link rel="stylesheet" href="{{ asset('app-shell.css') }}">
+    <script src="{{ asset('app-shell.js') }}"></script>
 </head>
 <body>
     @include('partials.header')
 
-    <div class="d-flex flex-row">
-    <aside class="flex-shrink-0 bg-light border-end" style="width: 12rem;">
-        @include('partials.sidebar')
-    </aside>
+    <div class="app-shell">
+        <aside class="app-sidebar" id="app-sidebar">
+            @include('partials.sidebar')
+        </aside>
 
-    <main class="flex-grow-1 p-3">
-        @yield('content')
-    </main>
+        <button class="sidebar-backdrop" type="button" aria-label="Tutup sidebar" tabindex="-1"></button>
+
+        <main class="app-main" id="app-main">
+            <div class="page-content">
+                @yield('breadcrumbs')
+                @yield('content')
+            </div>
+        </main>
     </div>
 
     @include('partials.footer')

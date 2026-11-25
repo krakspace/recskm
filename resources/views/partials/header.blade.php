@@ -1,3 +1,3 @@
 <header class="site-header">
-    <strong>Sistem Management</strong>
+    <a class="site-brand" href="{{ route('dashboard') }}">Sistem Management</a>
 </header>
