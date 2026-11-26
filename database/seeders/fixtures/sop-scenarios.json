@@ -1,0 +1,411 @@
+[
+  {
+    "sop": {
+      "id": "610b2441-310e-4693-b700-717e51b1f916",
+      "sop_code": "SIM-YRJQYIETJ8",
+      "sop_title": "Distribusi surat internal",
+      "description": null,
+      "organization_id": "ADM",
+      "department_id": null,
+      "visibility": "private",
+      "status": "PUBLISHED",
+      "current_revision_id": "6435c5e2-e43e-494f-a03f-2bbef65a92ba",
+      "effective_date": "2026-11-26 00:00:00",
+      "created_by": "drafter",
+      "updated_by": "direktur",
+      "created_at": "2026-11-26 06:29:07",
+      "updated_at": "2026-11-26 06:29:19"
+    },
+    "revisions": [
+      {
+        "id": "a3cc9185-385a-4643-aa14-511d8c3aa15b",
+        "sop_id": "610b2441-310e-4693-b700-717e51b1f916",
+        "revision_number": 1,
+        "version": "1",
+        "content": {
+          "title": "Distribusi surat internal",
+          "number": "SIM-YRJQYIETJ8",
+          "revision": "1",
+          "unit": "Administrasi",
+          "organization": "PT Krakatau Medika",
+          "definition": "Distribusi surat antarbagi\u200b\u200ban.",
+          "purpose": "Mencatat penerimaan surat.",
+          "policy": "Register administrasi unit.",
+          "procedure": {
+            "ops": [
+              {
+                "insert": "Catat surat dan teruskan ke unit tujuan.\n"
+              }
+            ]
+          },
+          "related": "Sekretariat dan Administrasi"
+        },
+        "rendered_html": null,
+        "document_file": null,
+        "sha256_hash": null,
+        "qr_verification_uuid": null,
+        "change_notes": null,
+        "revision_status": "REVISION_REQUIRED",
+        "submitted_by": "drafter",
+        "submitted_at": "2026-11-26 06:29:08",
+        "locked_at": "2026-11-26 06:29:08",
+        "published_at": null
+      },
+      {
+        "id": "6435c5e2-e43e-494f-a03f-2bbef65a92ba",
+        "sop_id": "610b2441-310e-4693-b700-717e51b1f916",
+        "revision_number": 2,
+        "version": "2",
+        "content": {
+          "title": "Distribusi surat internal",
+          "number": "SIM-YRJQYIETJ8",
+          "revision": "2",
+          "unit": "Administrasi",
+          "organization": "PT Krakatau Medika",
+          "definition": "Distribusi surat antarbagi\u200b\u200ban.",
+          "purpose": "Mencatat penerimaan surat.",
+          "policy": "Register administrasi unit.",
+          "procedure": {
+            "ops": [
+              {
+                "insert": "Catat surat, teruskan ke unit tujuan, lalu simpan bukti penerimaan.\n"
+              }
+            ]
+          },
+          "related": "Sekretariat dan Administrasi"
+        },
+        "rendered_html": null,
+        "document_file": null,
+        "sha256_hash": "f51320a0723f7d8c2957bc6f094514f6d8c45efe67aa2a5cba18ac6a5ff0f8b1",
+        "qr_verification_uuid": null,
+        "change_notes": "Tambahkan bukti penerimaan.",
+        "revision_status": "PUBLISHED",
+        "submitted_by": "drafter",
+        "submitted_at": "2026-11-26 06:29:13",
+        "locked_at": "2026-11-26 06:29:13",
+        "published_at": "2026-11-26 06:29:19"
+      }
+    ],
+    "approval_steps": [
+      {
+        "id": "1edd1805-f993-4da4-9ae5-c96b7ad948c6",
+        "revision_id": "a3cc9185-385a-4643-aa14-511d8c3aa15b",
+        "level": 1,
+        "role": "head_unit",
+        "approver_user_id": "kepala-unit",
+        "approver_snapshot": "{\"name\":\"Bima Santoso\",\"role\":\"head_unit\",\"unit\":\"ADM\"}",
+        "decision": "tolak",
+        "note": "Tambahkan bukti penerimaan.",
+        "approval_uuid": "2580c944-1d0a-4fb3-bcec-51bb32b710f9",
+        "decided_at": "2026-11-26 06:29:10"
+      },
+      {
+        "id": "d2a0eec0-ef01-4ff6-856a-281b2e6a29b7",
+        "revision_id": "a3cc9185-385a-4643-aa14-511d8c3aa15b",
+        "level": 2,
+        "role": "atasan",
+        "approver_user_id": "atasan",
+        "approver_snapshot": null,
+        "decision": null,
+        "note": null,
+        "approval_uuid": null,
+        "decided_at": null
+      },
+      {
+        "id": "dc019fce-7088-464e-9fd6-c9b86b0b515b",
+        "revision_id": "a3cc9185-385a-4643-aa14-511d8c3aa15b",
+        "level": 3,
+        "role": "direktur",
+        "approver_user_id": "direktur",
+        "approver_snapshot": null,
+        "decision": null,
+        "note": null,
+        "approval_uuid": null,
+        "decided_at": null
+      },
+      {
+        "id": "18112878-bd6f-468d-b1cc-0c7eea985e38",
+        "revision_id": "6435c5e2-e43e-494f-a03f-2bbef65a92ba",
+        "level": 1,
+        "role": "head_unit",
+        "approver_user_id": "kepala-unit",
+        "approver_snapshot": "{\"name\":\"Bima Santoso\",\"role\":\"head_unit\",\"unit\":\"ADM\"}",
+        "decision": "setuju",
+        "note": "",
+        "approval_uuid": "b30517e2-80ce-46bb-ae83-128480f3cdba",
+        "decided_at": "2026-11-26 06:29:15"
+      },
+      {
+        "id": "ee5053bf-9aa9-419b-a51e-f8e5552ea103",
+        "revision_id": "6435c5e2-e43e-494f-a03f-2bbef65a92ba",
+        "level": 2,
+        "role": "atasan",
+        "approver_user_id": "atasan",
+        "approver_snapshot": "{\"name\":\"Ratih Wulandari\",\"role\":\"atasan\",\"unit\":\"ADM\"}",
+        "decision": "setuju",
+        "note": "",
+        "approval_uuid": "451c7787-d8c8-4ae8-867e-ad4b7f855428",
+        "decided_at": "2026-11-26 06:29:16"
+      },
+      {
+        "id": "a37eea8f-6466-4e53-949c-d1ab2a9a39fe",
+        "revision_id": "6435c5e2-e43e-494f-a03f-2bbef65a92ba",
+        "level": 3,
+        "role": "direktur",
+        "approver_user_id": "direktur",
+        "approver_snapshot": "{\"name\":\"Arif Pratama\",\"role\":\"direktur\",\"unit\":\"ADM\"}",
+        "decision": "setuju",
+        "note": "",
+        "approval_uuid": "4e0ac961-62e0-4883-a089-250794ceeb4c",
+        "decided_at": "2026-11-26 06:29:18"
+      }
+    ],
+    "signature_logs": [
+      {
+        "id": "8c603286-891a-4c46-b2c1-2575c9bced16",
+        "revision_id": "6435c5e2-e43e-494f-a03f-2bbef65a92ba",
+        "signer_user_id": "direktur",
+        "signer_snapshot": "{\"name\":\"Arif Pratama\",\"unit\":\"ADM\"}",
+        "sign_mode": "simulation",
+        "signature_asset_key": null,
+        "sign_uuid": "48d3dd60-a77d-481b-bd62-3a5d864dfdbe",
+        "signed_at": "2026-11-26 06:29:19"
+      }
+    ],
+    "audit_trails": [
+      {
+        "entity_type": "sop_revision",
+        "entity_id": "a3cc9185-385a-4643-aa14-511d8c3aa15b",
+        "action": "created",
+        "actor_id": "drafter",
+        "metadata": "{}",
+        "ip_address": null,
+        "created_at": "2026-11-26 06:29:07"
+      },
+      {
+        "entity_type": "sop_revision",
+        "entity_id": "a3cc9185-385a-4643-aa14-511d8c3aa15b",
+        "action": "submitted",
+        "actor_id": "drafter",
+        "metadata": "{}",
+        "ip_address": null,
+        "created_at": "2026-11-26 06:29:08"
+      },
+      {
+        "entity_type": "sop_revision",
+        "entity_id": "a3cc9185-385a-4643-aa14-511d8c3aa15b",
+        "action": "tolak",
+        "actor_id": "kepala-unit",
+        "metadata": "{\"approval_uuid\":\"2580c944-1d0a-4fb3-bcec-51bb32b710f9\"}",
+        "ip_address": null,
+        "created_at": "2026-11-26 06:29:10"
+      },
+      {
+        "entity_type": "sop_revision",
+        "entity_id": "6435c5e2-e43e-494f-a03f-2bbef65a92ba",
+        "action": "revised",
+        "actor_id": "drafter",
+        "metadata": "{}",
+        "ip_address": null,
+        "created_at": "2026-11-26 06:29:12"
+      },
+      {
+        "entity_type": "sop_revision",
+        "entity_id": "6435c5e2-e43e-494f-a03f-2bbef65a92ba",
+        "action": "submitted",
+        "actor_id": "drafter",
+        "metadata": "{}",
+        "ip_address": null,
+        "created_at": "2026-11-26 06:29:13"
+      },
+      {
+        "entity_type": "sop_revision",
+        "entity_id": "6435c5e2-e43e-494f-a03f-2bbef65a92ba",
+        "action": "setuju",
+        "actor_id": "kepala-unit",
+        "metadata": "{\"approval_uuid\":\"b30517e2-80ce-46bb-ae83-128480f3cdba\"}",
+        "ip_address": null,
+        "created_at": "2026-11-26 06:29:15"
+      },
+      {
+        "entity_type": "sop_revision",
+        "entity_id": "6435c5e2-e43e-494f-a03f-2bbef65a92ba",
+        "action": "setuju",
+        "actor_id": "atasan",
+        "metadata": "{\"approval_uuid\":\"451c7787-d8c8-4ae8-867e-ad4b7f855428\"}",
+        "ip_address": null,
+        "created_at": "2026-11-26 06:29:16"
+      },
+      {
+        "entity_type": "sop_revision",
+        "entity_id": "6435c5e2-e43e-494f-a03f-2bbef65a92ba",
+        "action": "setuju",
+        "actor_id": "direktur",
+        "metadata": "{\"approval_uuid\":\"4e0ac961-62e0-4883-a089-250794ceeb4c\"}",
+        "ip_address": null,
+        "created_at": "2026-11-26 06:29:18"
+      },
+      {
+        "entity_type": "sop_revision",
+        "entity_id": "6435c5e2-e43e-494f-a03f-2bbef65a92ba",
+        "action": "published",
+        "actor_id": "direktur",
+        "metadata": "{}",
+        "ip_address": null,
+        "created_at": "2026-11-26 06:29:19"
+      }
+    ]
+  },
+  {
+    "sop": {
+      "id": "1583757a-2d75-5178-adde-38f2c5f412fa",
+      "sop_code": "SIM-ADM-002",
+      "sop_title": "Registrasi surat masuk",
+      "created_by": "drafter",
+      "organization_id": "ADM",
+      "visibility": "private",
+      "status": "DRAFT",
+      "current_revision_id": "4c4ce5bf-93c0-5d87-b130-95b8b3e11099",
+      "created_at": "2026-11-25 01:00:00",
+      "updated_at": "2026-11-25 01:00:00"
+    },
+    "revisions": [
+      {
+        "id": "4c4ce5bf-93c0-5d87-b130-95b8b3e11099",
+        "sop_id": "1583757a-2d75-5178-adde-38f2c5f412fa",
+        "revision_number": 1,
+        "version": "1",
+        "content": {
+          "title": "Registrasi surat masuk",
+          "number": "SIM-ADM-002",
+          "unit": "Administrasi",
+          "revision": "1",
+          "organization": "PT Krakatau Medika",
+          "definition": "Registrasi surat masuk di unit Administrasi.",
+          "purpose": "Memastikan dokumen dapat ditelusuri.",
+          "policy": "Pedoman administrasi unit.",
+          "procedure": {
+            "ops": [
+              {
+                "insert": "Catat nomor surat dan tanggal penerimaan.\n"
+              }
+            ]
+          },
+          "related": "Sekretariat"
+        },
+        "revision_status": "DRAFT"
+      }
+    ],
+    "approval_steps": [],
+    "signature_logs": [],
+    "audit_trails": [
+      {
+        "entity_type": "sop_revision",
+        "entity_id": "4c4ce5bf-93c0-5d87-b130-95b8b3e11099",
+        "action": "created",
+        "actor_id": "drafter",
+        "metadata": "{}",
+        "created_at": "2026-11-25 01:00:00"
+      }
+    ]
+  },
+  {
+    "sop": {
+      "id": "b9bbf412-0fa5-5db5-95f1-ea5a55e77b5c",
+      "sop_code": "SIM-ADM-003",
+      "sop_title": "Peminjaman dokumen unit",
+      "created_by": "drafter",
+      "organization_id": "ADM",
+      "visibility": "private",
+      "status": "REVISION_REQUIRED",
+      "current_revision_id": "a65f1e6b-a063-577e-a191-44750e2b646c",
+      "created_at": "2026-11-25 01:00:00",
+      "updated_at": "2026-11-25 01:00:00"
+    },
+    "revisions": [
+      {
+        "id": "a65f1e6b-a063-577e-a191-44750e2b646c",
+        "sop_id": "b9bbf412-0fa5-5db5-95f1-ea5a55e77b5c",
+        "revision_number": 1,
+        "version": "1",
+        "content": {
+          "title": "Peminjaman dokumen unit",
+          "number": "SIM-ADM-003",
+          "unit": "Administrasi",
+          "revision": "1",
+          "organization": "PT Krakatau Medika",
+          "definition": "Peminjaman dokumen unit di unit Administrasi.",
+          "purpose": "Memastikan dokumen dapat ditelusuri.",
+          "policy": "Pedoman administrasi unit.",
+          "procedure": {
+            "ops": [
+              {
+                "insert": "Catat nama peminjam dalam register unit.\n"
+              }
+            ]
+          },
+          "related": "Sekretariat"
+        },
+        "revision_status": "REVISION_REQUIRED",
+        "submitted_by": "drafter",
+        "submitted_at": "2026-11-25 01:00:00",
+        "locked_at": "2026-11-25 01:00:00"
+      }
+    ],
+    "approval_steps": [
+      {
+        "id": "1f611346-a68d-5cfe-8d5a-2746e3098002",
+        "revision_id": "a65f1e6b-a063-577e-a191-44750e2b646c",
+        "level": 1,
+        "role": "head_unit",
+        "approver_user_id": "kepala-unit",
+        "approver_snapshot": "{\"name\": \"Bima Santoso\", \"role\": \"head_unit\", \"unit\": \"ADM\"}",
+        "decision": "tolak",
+        "note": "Tambahkan batas pengembalian dan nama petugas penerima.",
+        "approval_uuid": "afe2235b-a0bd-50d3-aff2-c9e1e3c15cc1",
+        "decided_at": "2026-11-25 01:00:00"
+      },
+      {
+        "id": "91da2d37-bd62-56b8-a651-7216ee4ec562",
+        "revision_id": "a65f1e6b-a063-577e-a191-44750e2b646c",
+        "level": 2,
+        "role": "atasan",
+        "approver_user_id": "atasan"
+      },
+      {
+        "id": "3a93349c-4817-5ca0-8bc6-59f12a8d0416",
+        "revision_id": "a65f1e6b-a063-577e-a191-44750e2b646c",
+        "level": 3,
+        "role": "direktur",
+        "approver_user_id": "direktur"
+      }
+    ],
+    "signature_logs": [],
+    "audit_trails": [
+      {
+        "entity_type": "sop_revision",
+        "entity_id": "a65f1e6b-a063-577e-a191-44750e2b646c",
+        "action": "created",
+        "actor_id": "drafter",
+        "metadata": "{}",
+        "created_at": "2026-11-25 01:00:00"
+      },
+      {
+        "entity_type": "sop_revision",
+        "entity_id": "a65f1e6b-a063-577e-a191-44750e2b646c",
+        "action": "submitted",
+        "actor_id": "drafter",
+        "metadata": "{}",
+        "created_at": "2026-11-25 01:00:00"
+      },
+      {
+        "entity_type": "sop_revision",
+        "entity_id": "a65f1e6b-a063-577e-a191-44750e2b646c",
+        "action": "tolak",
+        "actor_id": "kepala-unit",
+        "metadata": "{\"approval_uuid\": \"afe2235b-a0bd-50d3-aff2-c9e1e3c15cc1\"}",
+        "created_at": "2026-11-25 01:00:00"
+      }
+    ]
+  }
+]

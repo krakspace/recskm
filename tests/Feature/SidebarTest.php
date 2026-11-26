@@ -12,13 +12,14 @@ class SidebarTest extends TestCase
 
         $response->assertOk()
             ->assertDontSeeText('Tugas Saya')
+            ->assertDontSeeText('Buat SOP')
+            ->assertDontSeeText('Draf Unit')
             ->assertSeeTextInOrder([
                 'Beranda',
                 'Pengelolaan SOP',
-                'Buat SOP',
-                'Draf Unit',
-                'Perlu Revisi',
+                'Draf SOP',
                 'Dalam Pengajuan',
+                'Perlu Revisi',
                 'Pustaka SOP',
                 'SOP Berlaku',
                 'Seluruh SOP Terbit',
@@ -56,30 +57,32 @@ class SidebarTest extends TestCase
         ])->assertDontSee('id="sidebar-position"', false);
     }
 
-    public function test_sop_form_marks_the_create_link_as_current(): void
+    public function test_draf_sop_marks_the_draft_link_as_current(): void
     {
-        $response = $this->get(route('form_SOP'));
+        $response = $this->get(route('pengelolaan.draf-sop'));
 
         $response->assertOk()
             ->assertSeeHtmlInOrder([
                 'Pengelolaan SOP',
-                'href="'.route('form_SOP').'"',
+                'href="'.route('pengelolaan.draf-sop').'"',
                 'aria-current="page"',
-                'Buat SOP',
-                'href="'.route('pengelolaan.draf-unit').'"',
-                'Draf Unit',
+                'Draf SOP',
+                'href="'.route('pengelolaan.dalam-pengajuan').'"',
+                'Dalam Pengajuan',
+                'href="'.route('pengelolaan.perlu-revisi').'"',
+                'Perlu Revisi',
             ]);
     }
 
-    public function test_sop_form_breadcrumb_links_back_to_the_dashboard(): void
+    public function test_draf_sop_breadcrumb_links_back_to_the_dashboard(): void
     {
-        $response = $this->get(route('form_SOP'));
+        $response = $this->get(route('pengelolaan.draf-sop'));
 
         $response->assertOk()->assertSeeHtmlInOrder([
             'aria-label="Breadcrumb"',
             '<a href="'.route('dashboard').'">Beranda</a>',
             '<span>Pengelolaan SOP</span>',
-            '<span aria-current="page">Buat SOP</span>',
+            '<span aria-current="page">Draf SOP</span>',
         ]);
     }
 

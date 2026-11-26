@@ -11,6 +11,7 @@
     crossorigin="anonymous"
     >
     <link rel="stylesheet" href="{{ asset('app-shell.css') }}">
+    @stack('styles')
     <script src="{{ asset('app-shell.js') }}"></script>
 </head>
 <body>
@@ -32,5 +33,6 @@
     </div>
 
     @include('partials.footer')
+    @stack('scripts')
 </body>
 </html>

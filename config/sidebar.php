@@ -2,10 +2,12 @@
 
 return [
     'Pengelolaan SOP' => [
-        'Buat SOP' => 'form_SOP',
-        'Draf Unit' => 'pengelolaan.draf-unit',
-        'Perlu Revisi' => 'pengelolaan.perlu-revisi',
+        'Draf SOP' => 'pengelolaan.draf-sop',
         'Dalam Pengajuan' => 'pengelolaan.dalam-pengajuan',
+        'Perlu Revisi' => 'pengelolaan.perlu-revisi',
+    ],
+    'Pemeriksaan SOP' => [
+        'Antrean Supervisor' => 'pemeriksaan.antrean-supervisor',
     ],
     'Pustaka SOP' => [
         'SOP Berlaku' => 'pustaka.sop-berlaku',

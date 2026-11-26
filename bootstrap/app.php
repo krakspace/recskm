@@ -15,6 +15,9 @@ return Application::configure(basePath: dirname(__DIR__))
         health: '/up',
     )
     ->withMiddleware(function (Middleware $middleware) {
+        $draftSave = fn (Request $request) => $request->isMethod('put') && $request->is('pengelolaan/simpanan-draf/*', 'simulasi/sop/*/draf');
+        $middleware->trimStrings(except: [$draftSave]);
+        $middleware->convertEmptyStringsToNull(except: [$draftSave]);
         $middleware->alias([
             'role' => RoleMiddleware::class,
             'permission' => PermissionMiddleware::class,

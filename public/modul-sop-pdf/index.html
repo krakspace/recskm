@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#124d3a"><title>Penyusun SOP · Sysman</title>
+<link rel="stylesheet" href="assets/quill/quill.snow.css">
+<link rel="stylesheet" href="style.css">
+<script defer src="assets/quill/quill.js"></script>
+<script defer src="assets/logo-data.js"></script><script defer src="template.js"></script>
+<script defer src="procedure.js"></script><script defer src="layout.js"></script><script defer src="export.js"></script><script defer src="app.js"></script>
+</head>
+<body>
+<header class="topbar"><div class="topinner"><div class="branding"><span class="brandicon"><i data-icon="layers"></i></span><strong>Sysman</strong><span class="divider"></span><span class="branddesc">Manajemen Dokumen</span></div>
+<button id="guide" class="quiet"><i data-icon="help"></i>Panduan</button></div></header>
+<main>
+<nav class="crumb" aria-label="Lokasi"><i data-icon="grid"></i>Ruang kerja <b>/</b> <strong>Penyusun SOP</strong></nav>
+<div class="hero"><div><h1>Penyusun SOP</h1><p>Lengkapi formulir, periksa pratinjau, lalu unduh SOP dalam format PDF.</p></div>
+<button id="export" class="primary"><i data-icon="download"></i>Unduh PDF</button></div>
+<div class="workspace"><section class="editor panel" aria-labelledby="editorTitle"><div class="panelhead"><h2 id="editorTitle"><span class="iconbox"><i data-icon="edit"></i></span>Editor formulir</h2><span class="save" id="save" role="status"></span></div>
+<div id="steps" class="steps" aria-label="Bagian formulir">
+<button data-step="0"><i data-icon="id"></i>Identitas</button><button data-step="1"><i data-icon="list"></i>Isi SOP</button></div>
+<form id="fields" novalidate></form>
+<div class="editorfoot"><span id="stepLabel"></span><button id="next" class="secondary"></button></div></section>
+<section class="preview panel" aria-labelledby="previewTitle"><div class="panelhead"><h2 id="previewTitle"><span class="iconbox sky"><i data-icon="eye"></i></span>Pratinjau PDF</h2><button class="square" id="expand" aria-label="Perbesar pratinjau" title="Perbesar pratinjau"><i data-icon="expand"></i></button></div>
+<div class="tray"><div class="paper" id="paper"></div></div>
+<div class="paging"><span class="paperformat"><i data-icon="file"></i>Letter <b>·</b> Potret</span><div class="pager"><button data-page="-1" aria-label="Halaman sebelumnya"><i data-icon="left"></i></button><span class="pagecount"></span><button data-page="1" aria-label="Halaman berikutnya"><i data-icon="right"></i></button></div></div></section></div>
+</main>
+<dialog id="large" aria-label="Pratinjau PDF">
+<div class="dialoghead"><h2>Pratinjau PDF</h2><a id="pdfTab" class="pdf-link" target="_blank" rel="noopener" hidden>Buka di tab baru</a><button class="square close" aria-label="Tutup"><i data-icon="x"></i></button></div>
+<p id="pdfStatus" role="status"></p><iframe id="pdfViewer" title="Dokumen SOP dalam format PDF" hidden></iframe></dialog>
+<dialog id="helpDialog" aria-labelledby="helpTitle"><div class="dialoghead"><h2 id="helpTitle">Panduan penyusunan</h2><button class="square close" aria-label="Tutup"><i data-icon="x"></i></button></div><ol class="helpsteps"><li><strong>Lengkapi identitas dokumen.</strong> Ganti data contoh dengan judul, nomor, revisi, dan unit penyusun SOP Anda.</li><li><strong>Tulis isi SOP.</strong> Di kolom Prosedur, gunakan toolbar untuk memberi penekanan atau membuat daftar langkah.</li><li><strong>Periksa lalu unduh.</strong> Telusuri halaman pratinjau. Pilih Unduh PDF untuk menyimpan dokumen yang siap dicetak.</li></ol><p class="helpnote">Draf tersimpan otomatis pada browser dan perangkat ini jika penyimpanan lokal tersedia.</p></dialog>
+<div id="feedback" role="status" class="toast" hidden></div>
+</body></html>

@@ -13,6 +13,12 @@
     </button>
 </div>
 <nav class="sidebar-nav" id="sidebar-nav" aria-labelledby="sidebar-heading">
+    @if (request()->routeIs('sim.*'))
+        <a class="sidebar-link sidebar-home" href="{{ route('sim.index') }}">Daftar SOP</a>
+        <form method="post" action="{{ route('sim.logout') }}">@csrf
+            <button class="btn btn-outline-secondary m-2" type="submit">Keluar / ganti akun</button>
+        </form>
+    @else
     <a class="sidebar-link sidebar-home"
        href="{{ route('dashboard') }}"
        @if ($currentRoute === 'dashboard') aria-current="page" @endif>
@@ -42,4 +48,5 @@
             </ul>
         </details>
     @endforeach
+    @endif
 </nav>
