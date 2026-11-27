@@ -45,6 +45,28 @@
             document.getElementById('matrix-role').addEventListener('change', (event) => {
                 event.currentTarget.form.requestSubmit();
             });
+
+            document.querySelectorAll('#permissions-form [data-permission-group]').forEach((groupCheckbox) => {
+                const group = groupCheckbox.closest('tbody');
+                const permissionCheckboxes = Array.from(group.querySelectorAll('input[name="pages[]"]'));
+
+                function syncGroupCheckbox() {
+                    const checkedCount = permissionCheckboxes.filter((checkbox) => checkbox.checked).length;
+                    groupCheckbox.checked = checkedCount > 0 && checkedCount === permissionCheckboxes.length;
+                    groupCheckbox.indeterminate = checkedCount > 0 && !groupCheckbox.checked;
+                }
+
+                groupCheckbox.addEventListener('change', () => {
+                    permissionCheckboxes.forEach((checkbox) => {
+                        checkbox.checked = groupCheckbox.checked;
+                    });
+                });
+
+                group.addEventListener('change', syncGroupCheckbox);
+                window.addEventListener('pageshow', syncGroupCheckbox);
+                syncGroupCheckbox();
+                groupCheckbox.hidden = permissionCheckboxes.length === 0;
+            });
         </script>
     @endpush
 @endif

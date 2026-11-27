@@ -7,7 +7,7 @@
         <p class="alert alert-danger" role="alert">Pilihan halaman tidak valid.</p>
     @endif
 
-    <form method="post" action="{{ route('admin.users.permissions.update', $role) }}">
+    <form id="permissions-form" method="post" action="{{ route('admin.users.permissions.update', $role) }}">
         @csrf
         @method('PUT')
         <div class="table-responsive">
@@ -20,7 +20,13 @@
                 </thead>
                 @foreach ($groups as $section => $items)
                     <tbody>
-                        <tr class="table-light"><th scope="rowgroup" colspan="2">{{ $section }}</th></tr>
+                        <tr class="table-light">
+                            <th scope="rowgroup">{{ $section }}</th>
+                            <td class="text-center">
+                                <input class="form-check-input" type="checkbox" data-permission-group
+                                    aria-label="Centang semua izin {{ $section }}" hidden>
+                            </td>
+                        </tr>
                         @foreach ($items as $label => $page)
                             @php
                                 $id = 'page-'.$loop->parent->index.'-'.$loop->index;

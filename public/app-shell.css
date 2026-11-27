@@ -273,7 +273,12 @@ body {
     vertical-align: middle;
 }
 
-.user-management__matrix .form-check-input:checked {
+.user-management__matrix [data-permission-group] {
+    width: 1.5rem;
+    height: 1.5rem;
+}
+
+.user-management__matrix .form-check-input:is(:checked, :indeterminate) {
     border-color: var(--green);
     background-color: var(--green);
 }
