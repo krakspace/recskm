@@ -10,6 +10,12 @@ class DraftBackupTest extends TestCase
 {
     use RefreshDatabase;
 
+    protected function setUp(): void
+    {
+        parent::setUp();
+        $this->authenticateSuperAdmin();
+    }
+
     private function payload(): array
     {
         return [

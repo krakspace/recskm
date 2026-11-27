@@ -19,6 +19,13 @@ class User extends Authenticatable
 
     public const SUPER_ADMIN_ROLE = 'super-admin';
 
+    public const ADMIN_ROLES = [self::SUPER_ADMIN_ROLE, 'Administrator'];
+
+    public function isAdministrator(): bool
+    {
+        return $this->hasRole(self::ADMIN_ROLES, 'web');
+    }
+
     protected $fillable = [
         'username', 'name', 'email', 'phone_number', 'employee_code',
         'organization_id', 'organization_code', 'password', 'is_active',

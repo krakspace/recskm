@@ -20,6 +20,7 @@ return [
     ],
     'Administrasi' => [
         'Pengguna' => 'admin.users.index',
+        'Matriks Izin' => 'admin.users.permissions.index',
         'Template SOP' => 'administrasi.template-sop',
         'Peran, Unit & Hak Akses' => 'administrasi.peran-unit-hak-akses',
         'Rute Persetujuan' => 'administrasi.rute-persetujuan',

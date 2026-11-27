@@ -2,10 +2,19 @@
 
 namespace Tests\Feature;
 
+use Illuminate\Foundation\Testing\RefreshDatabase;
 use Tests\TestCase;
 
 class SopWorkspaceTest extends TestCase
 {
+    use RefreshDatabase;
+
+    protected function setUp(): void
+    {
+        parent::setUp();
+        $this->authenticateSuperAdmin();
+    }
+
     public function test_draf_sop_places_editor_and_pdf_preview_above_draft_and_audit_history_table(): void
     {
         $response = $this->get(route('pengelolaan.draf-sop'));

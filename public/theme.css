@@ -1,0 +1,15 @@
+:root {
+    --surface: #fff;
+    --canvas: #f3f7fb;
+    --ink: #17324e;
+    --muted: #50647a;
+    --line: #dbe6ef;
+    --blue: #17558a;
+    --blue-dark: #103c66;
+    --blue-soft: #eef5fc;
+    --blue-ring: #4c88bc;
+    --green: #216a45;
+    --green-dark: #175235;
+    --green-soft: #edf7ef;
+    --green-accent: #9bd568;
+}

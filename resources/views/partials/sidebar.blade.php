@@ -1,18 +1,16 @@
 @php
     $currentRoute = request()->route()?->getName();
+    $sidebarUser = request()->routeIs('sim.*') ? null : Auth::guard('web')->user();
 @endphp
 
 <div class="sidebar-toolbar">
-    <h2 id="sidebar-heading">Menu utama</h2>
-    <button class="sidebar-toggle" id="sidebar-toggle" type="button" aria-controls="sidebar-nav" aria-expanded="true" aria-label="Tutup sidebar" title="Tutup sidebar">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true">
-            <rect x="2.5" y="4" width="19" height="16" rx="2"/>
-            <path d="M9 4v16"/>
-            <path class="toggle-chevron" d="m16 9-3 3 3 3"/>
-        </svg>
-    </button>
+    <img class="sidebar-logo" src="{{ asset('modul-sop-pdf/assets/ihc.png') }}" alt="" width="198" height="83">
+    <span class="sidebar-brand">
+        <span>Rumah Sakit</span>
+        <strong>Krakatau Medika</strong>
+    </span>
 </div>
-<nav class="sidebar-nav" id="sidebar-nav" aria-labelledby="sidebar-heading">
+<nav class="sidebar-nav" id="sidebar-nav" aria-label="Menu utama">
     @if (request()->routeIs('sim.*'))
         <a class="sidebar-link sidebar-home" href="{{ route('sim.index') }}">Daftar SOP</a>
         <form method="post" action="{{ route('sim.logout') }}">@csrf
@@ -27,9 +25,15 @@
 
     @foreach (config('sidebar') as $sectionLabel => $items)
         @php
+            if ($sidebarUser) {
+                $items = array_filter($items, fn ($page) => $page === 'admin.users.index'
+                    ? \App\Http\Middleware\EnsureSuperAdmin::allows(request())
+                    : \App\Http\Middleware\EnsurePageAccess::allows(request(), $page));
+            }
             $sectionIsActive = in_array($currentRoute, $items, true)
-                || (in_array('admin.users.index', $items, true) && request()->routeIs('admin.users.*'));
+                || (in_array('admin.users.index', $items, true) && request()->routeIs('admin.users.*', 'admin.roles.*'));
         @endphp
+        @continue($items === [])
 
         <details @if ($sectionIsActive) open @endif>
             <summary @class(['sidebar-link', 'sidebar-section', 'sidebar-section-current' => $sectionIsActive])>
@@ -38,7 +42,6 @@
 
             <ul class="sidebar-submenu">
                 @foreach ($items as $label => $routeName)
-                    @continue($routeName === 'admin.users.index' && Auth::guard('web')->check() && ! \App\Http\Middleware\EnsureSuperAdmin::allows(request()))
                     <li>
                         <a class="sidebar-sublink"
                            href="{{ route($routeName) }}"

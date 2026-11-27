@@ -40,7 +40,7 @@ class UserImpersonationController extends Controller
 
         Log::notice('User impersonation ended.', ['admin_id' => $adminId, 'user_id' => $userId]);
 
-        if (! $admin?->is_active || ! $admin->hasRole(User::SUPER_ADMIN_ROLE, 'web')) {
+        if (! $admin?->is_active || ! $admin->isAdministrator()) {
             $request->session()->invalidate();
             $request->session()->regenerateToken();
 

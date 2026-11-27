@@ -5,21 +5,20 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Masuk | Sistem Management</title>
+    <link rel="stylesheet" href="{{ asset('theme.css') }}">
     @vite('resources/css/app.css')
 </head>
-<body class="bg-[#edf2f5] text-slate-900 antialiased">
+<body class="bg-[var(--canvas)] text-[var(--ink)] antialiased">
     <main class="grid min-h-dvh place-items-center p-4 sm:p-8">
-        <div class="grid w-full max-w-5xl overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-xl shadow-slate-900/5 lg:grid-cols-[1fr_1.08fr]">
-            <aside class="relative isolate flex flex-col justify-between gap-10 overflow-hidden bg-[#102b36] p-7 text-white sm:p-10 lg:min-h-[570px] lg:p-12">
-                <div aria-hidden="true" class="pointer-events-none absolute inset-0 -z-10 bg-[radial-gradient(ellipse_at_bottom_right,#216759,transparent_72%)]"></div>
-                <div aria-hidden="true" class="pointer-events-none absolute -right-36 -bottom-40 -z-10 hidden size-120 rounded-full border border-teal-200/20 shadow-[0_0_0_36px_#99f6e414,0_0_0_72px_#99f6e40a] lg:block"></div>
+        <div class="grid w-full max-w-5xl overflow-hidden rounded-3xl border border-[var(--line)] bg-white shadow-xl shadow-slate-900/5 lg:grid-cols-[1fr_1.08fr]">
+            <aside class="relative isolate flex flex-col justify-center gap-6 overflow-hidden bg-[var(--blue-dark)] p-6 text-white sm:p-8 lg:min-h-[570px] lg:gap-8 lg:p-10">
+                <div aria-hidden="true" class="pointer-events-none absolute inset-0 -z-10 bg-[radial-gradient(ellipse_at_bottom_right,var(--green),transparent_72%)]"></div>
+                <div aria-hidden="true" class="pointer-events-none absolute -right-36 -bottom-40 -z-10 hidden size-120 rounded-full border border-white/20 shadow-[0_0_0_36px_#ffffff12,0_0_0_72px_#ffffff0a] lg:block"></div>
 
-                <div class="flex items-center gap-3 text-sm font-semibold sm:text-base">
-                    <span class="grid size-10 place-items-center rounded-xl bg-teal-200 font-bold tracking-tight text-[#102b36]" aria-hidden="true">SM</span>
-                    <span>Sistem Management</span>
-                </div>
+                <img src="{{ asset('ihc-login-white.png') }}" alt="IHC — Indonesia Healthcare Corporation Group" width="1536" height="1024"
+                    class="mx-auto h-auto w-full max-w-64 rounded-xl sm:max-w-80 lg:max-w-none">
 
-                <div class="hidden max-w-xs pb-4 lg:block">
+                <div class="hidden max-w-xs lg:block">
                     <p class="text-4xl leading-tight font-semibold tracking-tight">Standar kerja dalam satu tempat.</p>
                     <p class="mt-4 text-sm leading-6 text-slate-200">Akses dashboard dan kelola dokumen SOP dari satu ruang kerja.</p>
                 </div>
@@ -37,20 +36,20 @@
                         <div class="flex flex-col gap-2">
                             <label for="email" class="text-sm font-semibold">Email</label>
                             <input type="email" id="email" name="email" value="{{ old('email') }}" autocomplete="username" placeholder="nama@perusahaan.com" required
-                                class="h-12 w-full rounded-xl border border-slate-300 bg-slate-50 px-4 text-base placeholder:text-slate-500 focus:border-teal-700 focus:ring-2 focus:ring-teal-700/20 focus:outline-none">
+                                class="h-12 w-full rounded-xl border border-[var(--line)] bg-white px-4 text-base placeholder:text-slate-500 focus:border-[var(--blue)] focus:ring-2 focus:ring-[var(--blue-soft)] focus:outline-none">
                         </div>
 
                         <div class="flex flex-col gap-2">
                             <label for="password" class="text-sm font-semibold">Kata sandi</label>
                             <div class="relative">
                                 <input type="password" id="password" name="password" autocomplete="current-password" placeholder="Masukkan kata sandi" required
-                                    class="h-12 w-full rounded-xl border border-slate-300 bg-slate-50 pr-28 pl-4 text-base placeholder:text-slate-500 focus:border-teal-700 focus:ring-2 focus:ring-teal-700/20 focus:outline-none">
+                                    class="h-12 w-full rounded-xl border border-[var(--line)] bg-white pr-28 pl-4 text-base placeholder:text-slate-500 focus:border-[var(--blue)] focus:ring-2 focus:ring-[var(--blue-soft)] focus:outline-none">
                                 <button type="button" id="password-toggle" aria-controls="password" hidden
-                                    class="absolute inset-y-1 right-1 cursor-pointer rounded-lg px-3 text-sm font-semibold text-teal-800 hover:bg-teal-100 focus-visible:outline-2 focus-visible:outline-teal-700">Tampilkan</button>
+                                    class="absolute inset-y-1 right-1 cursor-pointer rounded-lg px-3 text-sm font-semibold text-[var(--blue)] hover:bg-[var(--blue-soft)] focus-visible:outline-2 focus-visible:outline-[var(--blue)]">Tampilkan</button>
                             </div>
                         </div>
 
-                        <button type="submit" class="mt-2 h-12 cursor-pointer rounded-xl bg-[#12594f] px-5 text-sm font-semibold text-white transition-colors hover:bg-[#0e473f] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-teal-700">
+                        <button type="submit" class="mt-2 h-12 cursor-pointer rounded-xl bg-[var(--blue)] px-5 text-sm font-semibold text-white transition-colors hover:bg-[var(--blue-dark)] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[var(--blue)]">
                             Masuk
                         </button>
                     </form>

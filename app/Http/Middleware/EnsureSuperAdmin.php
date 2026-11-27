@@ -3,7 +3,6 @@
 namespace App\Http\Middleware;
 
 use App\Http\Controllers\UserImpersonationController;
-use App\Models\User;
 use Closure;
 use Illuminate\Http\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -27,7 +26,7 @@ class EnsureSuperAdmin
         $user = $request->user('web');
 
         return $user?->is_active
-            && $user->hasRole(User::SUPER_ADMIN_ROLE, 'web')
+            && $user->isAdministrator()
             && ! $request->session()->has(UserImpersonationController::SESSION_KEY);
     }
 }

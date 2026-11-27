@@ -10,14 +10,15 @@
     integrity="sha384-yEPZ7jP9S0QKiUQ0m3jjsO4ProIW7wvR9gXkI7JOGa2XVsw53Yke2bsdkBbjmmiX"
     crossorigin="anonymous"
     >
+    <link rel="stylesheet" href="{{ asset('theme.css') }}">
     <link rel="stylesheet" href="{{ asset('app-shell.css') }}">
     @stack('styles')
     <script src="{{ asset('app-shell.js') }}"></script>
 </head>
 <body>
-    @include('partials.header')
-
     <div class="app-shell">
+        @include('partials.header')
+
         <aside class="app-sidebar" id="app-sidebar">
             @include('partials.sidebar')
         </aside>
@@ -44,9 +45,9 @@
                 @yield('content')
             </div>
         </main>
+        @include('partials.footer')
     </div>
 
-    @include('partials.footer')
     @stack('scripts')
 </body>
 </html>

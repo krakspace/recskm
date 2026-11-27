@@ -2,10 +2,19 @@
 
 namespace Tests\Feature;
 
+use Illuminate\Foundation\Testing\RefreshDatabase;
 use Tests\TestCase;
 
 class SopCatalogTest extends TestCase
 {
+    use RefreshDatabase;
+
+    protected function setUp(): void
+    {
+        parent::setUp();
+        $this->authenticateSuperAdmin();
+    }
+
     public function test_archive_and_current_library_show_the_corresponding_revisions(): void
     {
         $current = $this->get(route('pustaka.sop-berlaku'))->assertOk();

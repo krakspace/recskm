@@ -49,7 +49,7 @@
                 <legend class="form-label fs-6">Peran</legend>
                 @php($selectedRoles = (array) old('role_ids', $user->roles->modelKeys()))
                 @forelse ($roles as $role)
-                    @php($keepSuperAdmin = $editingOwnAccount && $role->name === \App\Models\User::SUPER_ADMIN_ROLE)
+                    @php($keepSuperAdmin = $editingOwnAccount && in_array($role->name, \App\Models\User::ADMIN_ROLES, true) && $user->roles->contains($role))
                     <div class="form-check">
                         <input class="form-check-input" type="checkbox" name="role_ids[]" id="role-{{ $role->uuid }}" value="{{ $role->uuid }}"
                             @checked($keepSuperAdmin || in_array($role->uuid, $selectedRoles, true)) @disabled($keepSuperAdmin)>

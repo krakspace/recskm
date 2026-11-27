@@ -16,7 +16,7 @@ class UserController extends Controller
     public function index(): View
     {
         return view('administrasi.pengguna', [
-            'users' => User::with('roles')->orderBy('name')->orderBy('id')->paginate(25),
+            'users' => User::with('roles')->orderBy('name')->orderBy('id')->paginate(12),
         ]);
     }
 
@@ -66,7 +66,7 @@ class UserController extends Controller
             if ($roles->count() !== count($roleIds)) {
                 throw ValidationException::withMessages(['role_ids' => 'Pilih peran yang tersedia untuk akun utama.']);
             }
-            if ($editingOwnAccount && ! $roles->contains('name', User::SUPER_ADMIN_ROLE)) {
+            if ($editingOwnAccount && $roles->whereIn('name', User::ADMIN_ROLES)->isEmpty()) {
                 throw ValidationException::withMessages(['role_ids' => 'Peran Super Admin harus tetap terpasang pada akun yang sedang digunakan.']);
             }
 

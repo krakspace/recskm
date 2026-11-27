@@ -27,7 +27,7 @@
 }
 
 .sop-module .sop-card > .card-header {
-    background: #fff;
+    background: var(--blue-soft);
     border-bottom: 1px solid var(--line, #e0e8f2);
     padding: 0.9rem 1.25rem;
 }
@@ -55,19 +55,19 @@
     border-radius: 0.5rem;
     display: inline-grid;
     place-items: center;
-    background: #eaf0fb;
+    background: var(--blue-soft);
     color: var(--accent, #2457cd);
     flex-shrink: 0;
 }
 
 .sop-module .sop-icon-badge.preview-badge {
-    background: #e8f4f0;
-    color: #196b52;
+    background: var(--green-soft);
+    color: var(--green);
 }
 
 .sop-module .sop-icon-badge.draft-badge {
-    background: #eef2ff;
-    color: #3730a3;
+    background: var(--blue-soft);
+    color: var(--blue-dark);
 }
 
 .sop-module .sop-icon-badge.warning-badge {
@@ -79,7 +79,7 @@
     display: flex;
     gap: 0.35rem;
     padding: 0.3rem;
-    background: #f4f7fb;
+    background: var(--blue-soft);
     border: 1px solid var(--line, #e0e8f2);
     border-radius: 0.6rem;
 }
@@ -106,8 +106,8 @@
 }
 
 .sop-module .sop-steps button[aria-current="step"] {
-    background: #fff;
-    color: var(--accent, #2457cd);
+    background: var(--green-soft);
+    color: var(--green-dark);
     box-shadow: 0 1px 3px rgba(23, 40, 73, 0.12);
 }
 
@@ -125,8 +125,8 @@
 }
 
 .sop-module .richtext:focus-within {
-    border-color: #86b7fe;
-    box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.25);
+    border-color: var(--blue-ring);
+    box-shadow: 0 0 0 0.25rem var(--blue-soft);
 }
 
 .sop-module .richtext.is-invalid,
@@ -261,7 +261,7 @@
     right: 1.5rem;
     z-index: 1080;
     padding: 0.75rem 1.1rem;
-    background: #172849;
+    background: var(--blue-dark);
     color: #fff;
     border-radius: 0.5rem;
     font-size: 0.88rem;
