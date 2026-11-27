@@ -13,9 +13,6 @@
 <nav class="sidebar-nav" id="sidebar-nav" aria-label="Menu utama">
     @if (request()->routeIs('sim.*'))
         <a class="sidebar-link sidebar-home" href="{{ route('sim.index') }}">Daftar SOP</a>
-        <form method="post" action="{{ route('sim.logout') }}">@csrf
-            <button class="btn btn-outline-secondary m-2" type="submit">Keluar / ganti akun</button>
-        </form>
     @else
     <a class="sidebar-link sidebar-home"
        href="{{ route('dashboard') }}"
@@ -53,11 +50,16 @@
             </ul>
         </details>
     @endforeach
-    @auth('web')
-        <form method="post" action="{{ route('account.logout') }}">
-            @csrf
-            <button class="btn btn-outline-secondary m-2" type="submit">Keluar</button>
-        </form>
-    @endauth
     @endif
 </nav>
+@auth(request()->routeIs('sim.*') ? 'simulation' : 'web')
+    <form class="sidebar-footer" method="post" action="{{ route(request()->routeIs('sim.*') ? 'sim.logout' : 'account.logout') }}">
+        @csrf
+        <button class="sidebar-logout" type="submit">
+            Logout
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M10 4H5v16h5m4-12 4 4-4 4m4-4H9"/>
+            </svg>
+        </button>
+    </form>
+@endauth
