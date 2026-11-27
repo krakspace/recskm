@@ -7,4 +7,10 @@
         </svg>
     </button>
     <a class="site-brand" href="{{ route(request()->routeIs('sim.*') ? 'sim.index' : 'dashboard') }}">Sistem Management</a>
+    @php($account = Auth::guard(request()->routeIs('sim.*') ? 'simulation' : 'web')->user())
+    @if ($account)
+        <span class="header-account" title="{{ $account->name }}">{{ $account->name }}</span>
+    @else
+        <a class="header-account header-sign-in" href="{{ route('account.login') }}">Masuk</a>
+    @endif
 </header>

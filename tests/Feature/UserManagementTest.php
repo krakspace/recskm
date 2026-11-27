@@ -159,7 +159,10 @@ class UserManagementTest extends TestCase
 
         $this->actingAs($user->fresh(), 'web')->get($draftPage)->assertOk();
         $this->getJson($backupPage)->assertOk();
-        $this->get(route('dashboard'))->assertSee($draftPage)->assertDontSee(route('pustaka.arsip-sop'));
+        $this->get(route('dashboard'))
+            ->assertSee('class="dashboard-shortcut" href="'.$draftPage.'"', false)
+            ->assertDontSee(route('pustaka.sop-berlaku'))
+            ->assertDontSee(route('pustaka.arsip-sop'));
         $this->get(route('pustaka.arsip-sop'))->assertForbidden();
         $this->actingAs($colleague->fresh(), 'web')->get($draftPage)->assertOk();
 

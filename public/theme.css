@@ -1,6 +1,6 @@
 :root {
     --surface: #fff;
-    --canvas: #f3f7fb;
+    --canvas: #f5f7fa;
     --ink: #17324e;
     --muted: #50647a;
     --line: #dbe6ef;
@@ -11,5 +11,4 @@
     --green: #216a45;
     --green-dark: #175235;
     --green-soft: #edf7ef;
-    --green-accent: #9bd568;
 }

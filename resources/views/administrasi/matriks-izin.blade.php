@@ -12,7 +12,7 @@
 
 @section('content')
     <div class="user-management permissions-page">
-        <header class="user-management__header permissions-page__header">
+        <header class="user-management__header">
             <h1>Matriks Izin</h1>
             <a class="btn btn-outline-secondary" href="{{ route('admin.roles.index', ['from' => 'matrix']) }}">Daftar Role</a>
         </header>

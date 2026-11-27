@@ -28,7 +28,6 @@
         const sidebar = document.getElementById('app-sidebar');
         const toggle = document.getElementById('sidebar-toggle');
         const backdrop = document.querySelector('.sidebar-backdrop');
-        const footer = document.querySelector('.site-footer');
         const main = document.getElementById('app-main');
 
         function updateSidebar() {
@@ -40,7 +39,6 @@
             toggle.setAttribute('aria-label', toggleText);
             toggle.title = toggleText;
             main.inert = narrowViewport.matches && open;
-            footer.inert = main.inert;
         }
 
         function closeMobileSidebar() {

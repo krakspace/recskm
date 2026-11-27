@@ -45,7 +45,6 @@
                 @yield('content')
             </div>
         </main>
-        @include('partials.footer')
     </div>
 
     @stack('scripts')

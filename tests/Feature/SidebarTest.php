@@ -57,7 +57,7 @@ class SidebarTest extends TestCase
             'id="app-sidebar"',
             'id="sidebar-nav"',
             '</aside>',
-            '<footer class="site-footer">',
+            '<main class="app-main" id="app-main">',
         ])->assertDontSee('id="sidebar-position"', false);
     }
 
