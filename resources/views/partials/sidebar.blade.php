@@ -27,7 +27,8 @@
 
     @foreach (config('sidebar') as $sectionLabel => $items)
         @php
-            $sectionIsActive = $currentRoute !== null && in_array($currentRoute, $items, true);
+            $sectionIsActive = in_array($currentRoute, $items, true)
+                || (in_array('admin.users.index', $items, true) && request()->routeIs('admin.users.*'));
         @endphp
 
         <details @if ($sectionIsActive) open @endif>
@@ -37,6 +38,7 @@
 
             <ul class="sidebar-submenu">
                 @foreach ($items as $label => $routeName)
+                    @continue($routeName === 'admin.users.index' && Auth::guard('web')->check() && ! \App\Http\Middleware\EnsureSuperAdmin::allows(request()))
                     <li>
                         <a class="sidebar-sublink"
                            href="{{ route($routeName) }}"
@@ -48,5 +50,11 @@
             </ul>
         </details>
     @endforeach
+    @auth('web')
+        <form method="post" action="{{ route('account.logout') }}">
+            @csrf
+            <button class="btn btn-outline-secondary m-2" type="submit">Keluar</button>
+        </form>
+    @endauth
     @endif
 </nav>

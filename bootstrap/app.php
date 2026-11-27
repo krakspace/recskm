@@ -15,6 +15,7 @@ return Application::configure(basePath: dirname(__DIR__))
         health: '/up',
     )
     ->withMiddleware(function (Middleware $middleware) {
+        $middleware->redirectGuestsTo(fn () => route('account.login'));
         $draftSave = fn (Request $request) => $request->isMethod('put') && $request->is('pengelolaan/simpanan-draf/*', 'simulasi/sop/*/draf');
         $middleware->trimStrings(except: [$draftSave]);
         $middleware->convertEmptyStringsToNull(except: [$draftSave]);

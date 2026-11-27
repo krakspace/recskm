@@ -18,7 +18,7 @@ class UseSimulationDatabase
         return SimulationDatabase::run(function () use ($request, $next) {
             $guard = Auth::guard('simulation');
             try {
-                if (! $request->routeIs('sim.login') && ! $guard->user()?->is_active) {
+                if (! $guard->user()?->is_active) {
                     $guard->logout();
 
                     return redirect()->route('login');

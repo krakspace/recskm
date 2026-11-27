@@ -26,6 +26,20 @@
 
         <main class="app-main" id="app-main">
             <div class="page-content">
+                @unless (request()->routeIs('sim.*'))
+                    @auth('web')
+                        @if (session()->has(\App\Http\Controllers\UserImpersonationController::SESSION_KEY))
+                            <div class="alert alert-warning d-flex flex-wrap align-items-center justify-content-between gap-2">
+                                <span>Anda sedang masuk sebagai <strong>{{ Auth::guard('web')->user()->name }}</strong>.</span>
+                                <form method="post" action="{{ route('admin.impersonation.destroy') }}">
+                                    @csrf
+                                    @method('DELETE')
+                                    <button class="btn btn-sm btn-outline-dark" type="submit">Kembali ke Super Admin</button>
+                                </form>
+                            </div>
+                        @endif
+                    @endauth
+                @endunless
                 @yield('breadcrumbs')
                 @yield('content')
             </div>

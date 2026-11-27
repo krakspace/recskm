@@ -47,7 +47,7 @@ class SimulateSop extends Command
         $sop = DB::table('sops')->where('sop_code', 'SIM-ADM-001')->first();
         $this->info($file);
         $this->line($sop->sop_code.' | '.$sop->sop_title.' | '.$sop->status);
-        $this->table(['Akun', 'Role', 'Izin memeriksa'], User::with('roles')->orderBy('username')->get()->map(fn (User $user) => [
+        $this->table(['Akun', 'Peran', 'Izin memeriksa'], User::with('roles')->orderBy('username')->get()->map(fn (User $user) => [
             $user->username, $user->getRoleNames()->implode(', '), $user->can('sop.review') ? 'Ya' : 'Tidak',
         ]));
 

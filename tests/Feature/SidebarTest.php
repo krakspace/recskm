@@ -28,9 +28,7 @@ class SidebarTest extends TestCase
                 'Cek Status SOP',
                 'Periksa PDF',
                 'Administrasi',
-                'Template SOP',
-                'Peran, Unit & Hak Akses',
-                'Rute Persetujuan',
+                'Pengguna',
                 'Aturan Penomoran',
                 'Audit',
                 'Log Aktivitas',
@@ -93,6 +91,12 @@ class SidebarTest extends TestCase
         foreach (config('sidebar') as $section => $items) {
             foreach ($items as $label => $name) {
                 $dashboard->assertSee('href="'.route($name).'"', false);
+                if ($name === 'admin.users.index') {
+                    $this->get(route($name))->assertRedirect(route('account.login'));
+
+                    continue;
+                }
+
                 $this->get(route($name))->assertOk()->assertSeeHtmlInOrder([
                     'href="'.route($name).'"',
                     'aria-current="page"',

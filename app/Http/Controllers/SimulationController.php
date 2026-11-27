@@ -19,17 +19,6 @@ use Illuminate\View\View;
 
 class SimulationController extends Controller
 {
-    public function login(Request $request): RedirectResponse
-    {
-        $input = $request->validate(['email' => ['required', 'email'], 'password' => ['required', 'string']]);
-        if (! Auth::guard('simulation')->attempt($input + ['is_active' => true])) {
-            throw ValidationException::withMessages(['email' => 'Email atau kata sandi tidak cocok dengan akun simulasi aktif.']);
-        }
-        $request->session()->regenerate();
-
-        return redirect()->route('sim.index');
-    }
-
     public function logout(Request $request): RedirectResponse
     {
         Auth::guard('simulation')->logout();

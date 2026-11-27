@@ -2,13 +2,18 @@
 
 namespace Tests\Feature;
 
+use App\Models\User;
 use Database\Seeders\SopSimulationSeeder;
+use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Http\UploadedFile;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Str;
 use Tests\TestCase;
 
 class SimulationLoginWorkflowTest extends TestCase
 {
+    use RefreshDatabase;
+
     private string $directory;
 
     protected function setUp(): void
@@ -29,9 +34,44 @@ class SimulationLoginWorkflowTest extends TestCase
 
     private function loginAs(string $username): void
     {
-        $response = $this->post(route('sim.login'), ['email' => $username.'@example.invalid', 'password' => SopSimulationSeeder::PASSWORD])
+        $response = $this->post(route('account.login.store'), ['email' => $username.'@example.invalid', 'password' => SopSimulationSeeder::PASSWORD])
             ->assertRedirect(route('sim.index'));
         $this->withCookie(config('session.cookie'), $response->getCookie(config('session.cookie'))->getValue());
+    }
+
+    public function test_single_form_routes_each_account_and_clears_the_previous_login(): void
+    {
+        $user = User::factory()->create();
+        $this->get(route('login'))->assertSee('action="'.route('account.login.store').'"', false);
+
+        $response = $this->post(route('account.login.store'), ['email' => $user->email, 'password' => 'password'])
+            ->assertRedirect(route('dashboard'));
+        $this->withCookie(config('session.cookie'), $response->getCookie(config('session.cookie'))->getValue());
+        $this->assertAuthenticatedAs($user, 'web');
+
+        $this->loginAs('drafter');
+        $this->get(route('sim.index'))->assertOk()->assertSeeText('Nadia Putri');
+        $this->assertGuest('web');
+
+        $response = $this->post(route('account.login.store'), ['email' => $user->email, 'password' => 'password'])
+            ->assertRedirect(route('dashboard'))
+            ->assertSessionMissing(Auth::guard('simulation')->getName());
+        $this->withCookie(config('session.cookie'), $response->getCookie(config('session.cookie'))->getValue());
+        $this->get(route('sim.index'))->assertRedirect(route('login'));
+        $this->assertAuthenticatedAs($user, 'web');
+    }
+
+    public function test_primary_account_takes_precedence_when_an_email_exists_in_both_databases(): void
+    {
+        $user = User::factory()->create(['email' => 'drafter@example.invalid']);
+
+        $this->post(route('account.login.store'), ['email' => $user->email, 'password' => SopSimulationSeeder::PASSWORD])
+            ->assertSessionHasErrors('email');
+        $this->assertGuest('web');
+
+        $this->post(route('account.login.store'), ['email' => $user->email, 'password' => 'password'])
+            ->assertRedirect(route('dashboard'));
+        $this->assertAuthenticatedAs($user, 'web');
     }
 
     public function test_seeded_accounts_complete_a_rejected_then_published_revision(): void

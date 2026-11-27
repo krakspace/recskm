@@ -17,6 +17,8 @@ class User extends Authenticatable
 {
     use HasFactory, HasRoles, HasUuids, Notifiable;
 
+    public const SUPER_ADMIN_ROLE = 'super-admin';
+
     protected $fillable = [
         'username', 'name', 'email', 'phone_number', 'employee_code',
         'organization_id', 'organization_code', 'password', 'is_active',
